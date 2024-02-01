@@ -1,0 +1,6 @@
+/.idea
+/.php-cs-fixer.cache
+/.phpunit.cache
+/.psalm/cache
+/build
+/vendor

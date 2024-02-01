@@ -1,0 +1,60 @@
+{
+  "name": "spriebsch/identifier-generator",
+  "description": "Code generator for UUID-based indentifier value objects.",
+  "authors": [
+    {
+      "name": "Stefan Priebsch",
+      "email": "stefan@priebsch.de",
+      "homepage": "https://priebsch.de",
+      "role": "Developer"
+    }
+  ],
+  "license": "BSD-3-Clause",
+  "autoload": {
+    "classmap": [
+      "src"
+    ]
+  },
+  "bin": [
+    "src/generate-identifiers.php"
+  ],
+  "config": {
+    "platform": {
+      "php": "8.3"
+    },
+    "optimize-autoloader": true,
+    "sort-packages": true
+  },
+  "prefer-stable": true,
+  "require": {
+    "php": "^8.3",
+    "ext-sqlite3": "*",
+    "spriebsch/eventstore": "^1.0",
+    "spriebsch/filesystem": "^1.0",
+    "spriebsch/uuid": "^1.0"
+  },
+  "scripts": {
+    "post-autoload-dump": "composer generate-autoloader",
+    "generate-autoloader": [
+      "tools/phpab --basedir src --output src/autoload.php composer.json"
+    ],
+    "clean": "rm -rf build/*",
+    "test": "tools/phpunit",
+    "mutation-test": [
+      "rm build/infection.log",
+      "tools/infection"
+    ],
+    "code-coverage": [
+      "rm -rf build/code-coverage",
+      "@putenv XDEBUG_MODE=coverage",
+      "tools/phpunit --coverage-html build/code-coverage"
+    ],
+    "path-coverage": [
+      "rm -rf build/code-coverage",
+      "@putenv XDEBUG_MODE=coverage",
+      "tools/phpunit --coverage-html build/code-coverage --path-coverage"
+    ],
+    "show-coverage": "gio open build/code-coverage/index.html",
+    "update-tools": "phive update"
+  }
+}
