@@ -49,7 +49,7 @@ final class IdentifierGenerator
          * preg_match( '/^[a-zA-Z_\x80-\xff][a-zA-Z0-9_\x80-\xff]*$/', $input)
          */
 
-        $template = Filesystem::from(__DIR__ . '/../template/IdentifierTemplate.php');
+        $template = Filesystem::from(__DIR__ . '/../template/IdentifierTemplate.template');
 
         $code = $template->load();
 
