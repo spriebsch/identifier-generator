@@ -20,16 +20,16 @@
   ],
   "config": {
     "platform": {
-      "php": "8.3"
+      "php": "8.4"
     },
     "optimize-autoloader": true,
     "sort-packages": true
   },
   "prefer-stable": true,
   "require": {
-    "php": "^8.3",
+    "php": "^8.4",
     "ext-sqlite3": "*",
-    "spriebsch/eventstore": "^1.0",
+    "spriebsch/eventstore": "^2.0",
     "spriebsch/filesystem": "^1.0",
     "spriebsch/uuid": "^1.0"
   },
